@@ -1,0 +1,11 @@
+; $Id$
+name = "Domain Access CiviCRM"
+project = "domain_civicrm"
+package = "CiviCRM"
+description = Adds the "assigned domain" to a CiviCRM contact's Drupal user based on the domain in which they were created. Useful when you're creating Drupal accounts via profiles.
+; Requires CiviCRM 4.6, or you must backport CRM-15774.
+dependencies[] = civicrm
+//dependencies[] = civicrm (>=4.6)
+dependencies[] = domain
+core = 7.x
+version = 1.0

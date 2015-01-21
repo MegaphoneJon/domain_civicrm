@@ -1,0 +1,1 @@
+This is an integration module for sites running CiviCRM and domain access.  By default, when creating a user in Drupal, Domain Access will automatically assign the user to the domain on which they registered.  However, if they create their user via a CiviCRM profile, they will not be added to the appropriate domain.  This module fixes that.
