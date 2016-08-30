@@ -16,13 +16,14 @@ function domain_civicrm_civicrm_post($op, $object_name, $object_id, &$object_ref
     $domain = domain_resolve_host();
     $domain_id = $domain['domain_id'];
 
-    // Then need to insert into domain_editor
-    $query = db_insert('domain_editor')
-      ->fields(array(
+    // Then need to 'merge' into domain_editor (so it works if creating users from Drupal admin)
+	// -- the key() method also sets the 'insert' part of the query, but leaves the 'update' blank
+	// -- https://api.drupal.org/api/drupal/includes!database!query.inc/function/MergeQuery%3A%3Akey/7.x
+    $query = db_merge('domain_editor')
+      ->key(array(
         'uid' => $uid,
         'domain_id' => $domain_id,
-      )
-      );
+      ));
     $query->execute();
   }
 }
